@@ -39,9 +39,9 @@ document.onkeyup = function(event) {
 // Win and loss conditions
     if (userGuess === letterAnswer) {
         wins++;
-        reset();
         var W = document.getElementById("number-of-wins");
-        W.innerHTML = wins
+        W.innerHTML = wins;
+        reset();
     }
 
     else if (userGuess !== letterAnswer) {
@@ -52,8 +52,12 @@ document.onkeyup = function(event) {
 
     if (guessesLeft === 0) {
         losses++;
-        reset();
         var L = document.getElementById("number-of-losses");
-        L.innerHTML = losses
+        L.innerHTML = losses;
+        reset();
     }
 }
+
+// I see that my reset() function doesn't work as intended, it is supposed to clear the letter array and reset--
+// the counter to 9 but it doesn't. The user still gets their 9 tries, but the display is confusing. Eventually--
+// I will look into properly fixing the function.
