@@ -12,7 +12,7 @@ var guessesLeft = 9;
 var GL = document.getElementById("guesses-left");
 GL.innerHTML = guessesLeft
 
-// Guesses so far is an array because there are multipe varying letters every game
+// Guesses so far is an array because there are multiple varying letters every game
 
 var guessesSoFar = [];
 
@@ -31,30 +31,30 @@ document.onkeyup = function(event) {
     GSF.innerHTML = guessesSoFar;
 
     // Reset Function
-        var reset = function () {
+        var reset = function (){
         guessesLeft = 9;
         guessesSoFar = [];
-    }
+    };
 
 // Win and loss conditions
     if (userGuess === letterAnswer) {
         wins++;
         var W = document.getElementById("number-of-wins");
         W.innerHTML = wins;
-        reset();
+        reset(guessesLeft, guessesSoFar);
     }
 
     else if (userGuess !== letterAnswer) {
         guessesLeft--
         var GL = document.getElementById("guesses-left");
-        GL.innerHTML = guessesLeft
+        GL.innerHTML = guessesLeft;
     }
 
     if (guessesLeft === 0) {
         losses++;
         var L = document.getElementById("number-of-losses");
         L.innerHTML = losses;
-        reset();
+        reset(guessesLeft, guessesSoFar);
     }
 }
 
